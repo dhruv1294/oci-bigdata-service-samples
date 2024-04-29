@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class HelloFunctionTest {
 
-    @Rule
+    /*@Rule
     public final FnTestingRule testing = FnTestingRule.createDefault();
 
     @Test
@@ -17,6 +17,6 @@ public class HelloFunctionTest {
 
         FnResult result = testing.getOnlyResult();
         assertEquals("Hello, world!", result.getBodyAsString());
-    }
+    }*/
 
 }

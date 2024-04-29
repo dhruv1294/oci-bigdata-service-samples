@@ -1,5 +1,17 @@
 package com.example.fn;
 
+import com.oracle.bmc.auth.ResourcePrincipalAuthenticationDetailsProvider;
+import com.oracle.bmc.bds.BdsClient;
+import com.oracle.bmc.bds.model.Node;
+import com.oracle.bmc.bds.model.RemoveNodeDetails;
+import com.oracle.bmc.bds.requests.GetBdsInstanceRequest;
+import com.oracle.bmc.bds.requests.RemoveNodeRequest;
+import com.oracle.bmc.bds.responses.GetBdsInstanceResponse;
+import com.oracle.bmc.bds.responses.RemoveNodeResponse;
+
+import java.util.Base64;
+import java.util.List;
+
 public class ScaleDown {
 
     private BdsClient bdsClient = null;
@@ -41,7 +53,7 @@ public class ScaleDown {
                     .opcRequestId("VRJVYQW4PQVK9Z5XENZX<unique_ID>").build();
 
             /* Send request to the Client */
-            GetBdsInstanceResponse response = client.getBdsInstance(getBdsInstanceRequest);
+            GetBdsInstanceResponse response = bdsClient.getBdsInstance(getBdsInstanceRequest);
             List<Node> nodes = response.getBdsInstance().getNodes();
             String workerInstanceId = "";
             for(Node node : nodes){
@@ -63,7 +75,7 @@ public class ScaleDown {
                     .build();
 
             /* Send request to the Client */
-            RemoveNodeResponse removeNodeResponse = client.removeNode(removeNodeRequest);
+            RemoveNodeResponse removeNodeResponse = bdsClient.removeNode(removeNodeRequest);
             System.out.println(removeNodeResponse);
 
         } catch (Throwable e) {

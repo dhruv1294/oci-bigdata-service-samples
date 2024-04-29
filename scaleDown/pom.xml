@@ -35,6 +35,23 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.oracle.oci.sdk</groupId>
+            <artifactId>oci-java-sdk-common</artifactId>
+            <version>3.39.1</version>
+        </dependency>
+        <dependency>
+            <!-- Since this is the "application" pom.xml, we do want to
+                 choose the httpclient to use. -->
+            <groupId>com.oracle.oci.sdk</groupId>
+            <artifactId>oci-java-sdk-common-httpclient-jersey</artifactId>
+            <version>3.39.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.oci.sdk</groupId>
+            <artifactId>oci-java-sdk-bds</artifactId>
+            <version>3.39.1</version>
+        </dependency>
     </dependencies>
 
     <build>
