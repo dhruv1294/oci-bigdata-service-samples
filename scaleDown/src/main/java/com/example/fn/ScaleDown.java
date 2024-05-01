@@ -76,6 +76,8 @@ public class ScaleDown {
 
             /* Send request to the Client */
             RemoveNodeResponse removeNodeResponse = bdsClient.removeNode(removeNodeRequest);
+            responseCode =  removeNodeResponse.get__httpStatusCode__();
+            System.err.println("Got " +  responseCode + " response code  " );
             System.out.println(removeNodeResponse);
 
         } catch (Throwable e) {
